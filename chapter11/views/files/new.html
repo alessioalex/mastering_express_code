@@ -1,0 +1,20 @@
+<%- include ../layout/header.html %>
+
+<form action="/files" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Choose file:</label>
+    <input type="file" name="file" />
+  </div>
+
+  <div class="form-group">
+    <label>Password protect (leave blank otherwise):</label>
+    <input type="password" name="password" />
+  </div>
+
+  <div class="form-group">
+    <%- csrf() %>
+    <input type="submit" />
+  </div>
+</form>
+
+<%- include ../layout/footer.html %>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time in <%= timezone %> now</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <h1>Time in <%= timezone %> now</h1>
+
+  <div id="time"></div>
+
+  <script src="/js/jquery-1.11.1.min.js"></script>
+  <script src="/js/jsclock-0.8.min.js"></script>
+  <script>
+    $('#time').jsclock('<%= time.split(' ').pop() %>');
+  </script>
+</body>
+</html>

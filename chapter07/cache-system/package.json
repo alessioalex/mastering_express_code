@@ -1,0 +1,15 @@
+{
+  "name": "cache-system",
+  "version": "0.0.0",
+  "description": "",
+  "main": "cache.js",
+  "dependencies": {
+    "ms": "~0.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

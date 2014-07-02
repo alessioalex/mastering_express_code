@@ -1,0 +1,10 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "quotes": 0,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "no-underscore-dangle": 0
+  }
+}

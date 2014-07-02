@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+}
+#time {
+  font-size: 100px;
+  font-family: monospace;
+  border: 1px solid #262626;
+  display: inline-block;
+  padding: 0.5em;
+}
+select {
+  font-size: 1em;
+  width: 255px;
+  height: 50px;
+}

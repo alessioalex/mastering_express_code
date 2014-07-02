@@ -1,0 +1,29 @@
+<%- include layout/header.html %>
+
+<% if (movies.results) { %>
+
+  <h1><%= pageTitle %></h1>
+
+  <div class="links">
+    <a href="/">Home</a>
+  </div>
+
+  <div class="results">
+    <% movies.results.forEach(function(movie) { %>
+    <p>
+      <% if (movie.poster_path) { %>
+        <img src="<%= movie.poster_path %>" alt="" />
+      <% } %>
+
+      <a href="/movies/<%= movie.id %>"><%= movie.title %> (<%= movie.release_date %>)</a>
+    </p>
+    <% }) %>
+  </div>
+
+<% } else { %>
+
+  <h1>No results found</h1>
+
+<% } %>
+
+<%- include layout/footer.html %>

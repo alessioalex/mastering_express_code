@@ -1,0 +1,34 @@
+<%- include ../layout/header.html %>
+
+<p>
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= meta.name %></td>
+    </tr>
+      <th>Type</th>
+      <td><%= meta.type %></td>
+    </tr>
+      <th>Size</th>
+      <td><%= meta.size %> bytes</td>
+    </tr>
+      <th>Uploaded at</th>
+      <td><%= meta.uploadedAt %></td>
+    </tr>
+  </table>
+</p>
+
+<p>
+  <a href="/files/download/<%- id %>">Download file</a> | 
+  <a href="/files">Upload new file</a>
+</p>
+
+<p>
+  To share this file with your friends use the <a href="/files/<%- id %>">current link</a>.
+  <% if (isPasswordProtected) { %>
+  <br />
+  Don't forget to tell them the file password as well!
+  <% } %>
+</p>
+
+<%- include ../layout/footer.html %>

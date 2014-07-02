@@ -1,0 +1,22 @@
+<% posts.forEach(function(post) { %>
+<div class="post" data-id="<%= post._id %>" data-timestamp=<%= post.createdAt %>>
+  <img class="thumbnail" src="<%- getGravatarImage(post.author.email, { size: 65 }) %>" />
+  <div class="content">
+    <div class="meta">
+      <span class="username">
+        @<%- post.author.username %>
+      </span>
+      <span class="createdAt">
+        <%- moment(post.createdAt).fromNow() %>
+      </span>
+    </div>
+
+    <div class="body">
+      <%= post.content %>
+    </div>
+
+    <br />
+
+  </div>
+</div>
+<% }) %>

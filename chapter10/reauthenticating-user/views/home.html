@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+</head>
+<body>
+  <h1>Welcome user</h1>
+
+  <p>If you are seeing this page it means that you are logged in!</p>
+
+  <form action="/logout" method="POST">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Logout" />
+    <%- csrf( )%>
+  </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "wall",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "ejs": "~1.0.0",
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0-rc4",
+    "passport-local-mongoose": "~0.3.0",
+    "passport-local": "~1.0.0",
+    "passport": "~0.2.0",
+    "mongoose": "~3.8.8",
+    "morgan": "~1.0.0",
+    "method-override": "~1.0.0",
+    "serve-static": "~1.0.3",
+    "cookie-session": "~1.0.1",
+    "extend": "~1.2.1",
+    "validator": "~3.5.1",
+    "memoizejs": "~0.1.0",
+    "connect-flash": "~0.1.1",
+    "errto": "~0.2.1",
+    "nodejs-gravatar": "~1.0.2",
+    "moment": "~2.5.1",
+    "primus": "~2.1.2",
+    "ws": "~0.4.31",
+    "stack-trace": "0.0.9",
+    "async-each": "~0.1.4",
+    "nice-error": "0.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

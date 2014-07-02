@@ -1,0 +1,118 @@
+body {
+  font-family: Comic Sans Ms, Times New Roman;
+  background: #F1F1F1;
+}
+a {
+  color: #0084B2;
+  text-decoration: none;
+}
+header h1, .container h2 {
+  padding: 0;
+  margin: 0;
+}
+header h1 {
+  font-family: 'IM Fell Great Primer', sans-serif;
+  background: #0084B2;
+  color: #FFF;
+}
+header h1, .container {
+  padding: 15px 30px;
+}
+h3, table {
+  font-family: Times New Roman;
+}
+header {
+  box-shadow: 1px 1px 2px #999;
+}
+.user-form {
+  width: 333px;
+  margin: 0 auto;
+  border: 1px solid #929292;
+  padding: 20px;
+  border-radius: 3px;
+  background: #FFF;
+  box-shadow: 1px 1px 10px #CCC;
+}
+table {
+  background-color: #FFF;
+  box-shadow: 1px 1px 5px lightgray;
+  text-align: left;
+  width: 350px;
+}
+thead {
+  background: #F9F9F9;
+}
+tr {
+  border: 1px dotted #DEDEDE;
+}
+tbody tr:nth-child(odd) {
+  background: #FFFFF9;
+}
+th, td {
+  padding: 4px;
+}
+input[type=text], input[type=password] {
+  width: 250px;
+  text-indent: 5px;
+}
+input[type=submit] {
+  color: #fff;
+  background: #428bca;
+  border-color: #357ebd;
+  opacity: 0.9;
+}
+input[type=submit]:hover {
+  opacity: 1;
+}
+input.sign-out {
+  color: #262626;
+  background: #FFF;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+table input[type=submit] {
+  border: none;
+  background: transparent;
+  color: #0084B2;
+  padding: 0;
+}
+.notification {
+  border-left-style: solid;
+  border-left-width: 5px;
+  display: inline-block;
+  text-indent: 5px;
+  padding: 5px 10px 5px 2px;
+}
+.notification.error {
+  border-left-color: #D59394;
+  background: #F8EEEE;
+}
+.notification.info {
+  border-left-color: #97B7CE;
+  background: #EFF4F8;
+}
+#upload-form {
+  margin-bottom: 25px;
+}
+#upload-form button {
+  padding: 0 5px;
+  border: 1px inset #000;
+  margin-left: 5px;
+  background: #FFF;
+}
+#upload-form .browse-file {
+  display: inline-block;
+  position: relative;
+}
+.browse-file input {
+  width: 250px;
+  border: 1px inset #CCC;
+  padding: 0;
+}
+.browse-file input[type=file] {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}

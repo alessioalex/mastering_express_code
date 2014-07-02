@@ -1,0 +1,79 @@
+<%- include layout/header.html %>
+
+<div id="head" class="row">
+  <div class="col-md-12">
+    <h1>Welcome to WallApp</h1>
+
+    <div class="col-md-4">
+      <% if (user) { %>
+      <div class="welcome">
+        <form action="/logout" method="POST" class="form-inline">
+          <label>
+            You are currently logged in as <%= user.username %>.
+          </label>
+          <button type="submit" class="btn btn-default">Sign out</button>
+          <input type="hidden" name="_method" value="DELETE" />
+        </form>
+      </div>
+      <% } else { %>
+        <p>
+          Hey, please <a href="/login">login</a> or <a href="/register">register</a> to post something.
+        </p>
+      <% } %>
+    </div>
+
+    <div class="col-md-8">
+      <div id="post-updates">
+        <a href="#"><span class="post-counter">X</span> new post(s) available.</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <% if (successMsg) { %>
+    <p class="notice bg-success">
+      <%= successMsg %>
+    </p>
+    <% } else if (errorMsg) { %>
+    <p class="notice bg-danger">
+      <%= errorMsg %>
+    </p>
+    <% } %>
+
+    <% if (user) { %>
+    <div class="new-post">
+      <form action="/posts" method="POST">
+        <h3>New post</h3>
+
+        <div class="form-group">
+          <textarea class="form-control" rows="7" name="content"
+            id="new-post-content" maxlength="255"></textarea>
+
+          <p class="counter">
+            <span id="char-counter">255</span> chars remaining
+          </p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Publish!</button>
+        </div>
+      </form>
+    </div>
+    <% } %>
+
+  </div>
+
+  <div class="col-md-8" id="posts">
+    <h3>Posts</h3>
+
+    <% if (!posts.length) { %>
+    <p>Be the first to write a post!</p>
+    <% } else { %>
+      <% include _posts.html %>
+    <% } %>
+  </div>
+</div>
+
+<%- include layout/footer.html %>

@@ -1,0 +1,78 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 90%;
+  width: 960px;
+  margin: 10px auto;
+  position: relative;
+}
+img {
+  border: 1px solid #CCC;
+  padding: 5px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 25px;
+}
+ul li {
+  padding: 5px 0;
+  line-height: 22px;
+  font-size: 17px;
+}
+.movie .poster, .movie .content {
+  float: left;
+}
+.movie .content {
+  width: 500px;
+}
+.movie .attribute, .movie .info {
+  display: block;
+  padding: 5px;
+}
+.movie .attribute {
+  background: #F2F2F2;
+  font-weight: bold;
+}
+.person {
+  border-bottom: 1px dashed #CCC;
+  padding: 0 0 15px;
+}
+.cast .info {
+  max-height: 350px;
+  overflow: scroll;
+}
+.trailer .attribute {
+  color: #00F;
+  text-decoration: underline;
+}
+.trailer .info {
+  display: none;
+}
+.trailer:hover {
+  cursor: pointer;
+}
+#main-search input {
+  font-size: 30px;
+}
+#main-search input[type=submit] {
+  padding: 3px 15px; background:#ccc; border:0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.links {
+  position: absolute;
+  right: 105px;
+  top: 10px;
+}
+.source {
+  border-top: 1px solid #CCC;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 5px;
+}

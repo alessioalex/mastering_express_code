@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+  body
+    - if (user) {
+    -    if (user.gender === 'male') {
+        |Hello sir 
+    -    } else {
+        |Hello madam 
+    -    }
+      =user.firstName + ' ' + user.lastName
+    -  }

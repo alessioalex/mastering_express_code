@@ -1,0 +1,163 @@
+[
+    {
+        "id": 0,
+        "employed": false,
+        "age": 33,
+        "name": "Daniels Richmond",
+        "gender": "male",
+        "company": "Dogtown",
+        "email": "danielsrichmond@dogtown.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Harding Terrell"
+            },
+            {
+                "id": 1,
+                "name": "Nichols Carey"
+            },
+            {
+                "id": 2,
+                "name": "Mai Bradley"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "employed": false,
+        "age": 21,
+        "name": "Molly Fields",
+        "gender": "female",
+        "company": "Xleen",
+        "email": "mollyfields@xleen.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Tameka Sears"
+            },
+            {
+                "id": 1,
+                "name": "Bean Hebert"
+            },
+            {
+                "id": 2,
+                "name": "Antonia Williamson"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "employed": true,
+        "age": 25,
+        "name": "Burnett Riddle",
+        "gender": "male",
+        "company": "Remotion",
+        "email": "burnettriddle@remotion.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Trujillo Willis"
+            },
+            {
+                "id": 1,
+                "name": "Ann Dillon"
+            },
+            {
+                "id": 2,
+                "name": "Nora Tate"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "employed": true,
+        "age": 35,
+        "name": "Flowers Larsen",
+        "gender": "male",
+        "company": "Utarian",
+        "email": "flowerslarsen@utarian.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Ford Holmes"
+            },
+            {
+                "id": 1,
+                "name": "Flores Whitney"
+            },
+            {
+                "id": 2,
+                "name": "Hanson Vazquez"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "employed": false,
+        "age": 21,
+        "name": "Rita Puckett",
+        "gender": "female",
+        "company": "Zanilla",
+        "email": "ritapuckett@zanilla.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Montoya Frazier"
+            },
+            {
+                "id": 1,
+                "name": "Jayne Short"
+            },
+            {
+                "id": 2,
+                "name": "Jerry Pacheco"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "employed": true,
+        "age": 37,
+        "name": "Allison Walter",
+        "gender": "male",
+        "company": "Genmex",
+        "email": "allisonwalter@genmex.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Tasha Mullen"
+            },
+            {
+                "id": 1,
+                "name": "Estela Floyd"
+            },
+            {
+                "id": 2,
+                "name": "Todd English"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "employed": true,
+        "age": 22,
+        "name": "Irwin Higgins",
+        "gender": "male",
+        "company": "Darwinium",
+        "email": "irwinhiggins@darwinium.com",
+        "friends": [
+            {
+                "id": 0,
+                "name": "Sutton Singleton"
+            },
+            {
+                "id": 1,
+                "name": "Lelia Morrow"
+            },
+            {
+                "id": 2,
+                "name": "Young Benton"
+            }
+        ]
+    }
+]

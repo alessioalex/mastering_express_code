@@ -1,0 +1,17 @@
+{
+  "name": "removing-leftovers",
+  "version": "0.0.0",
+  "description": "",
+  "main": "clean-server.js",
+  "dependencies": {
+    "debug": "~0.8.1",
+    "express": "~4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "integrating-template-engine",
+  "version": "0.0.0",
+  "description": "Integrating a custom template engine with Express",
+  "main": "server.js",
+  "dependencies": {
+    "watch": "~0.9.0",
+    "debug": "~0.7.4",
+    "lodash": "~2.4.1",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

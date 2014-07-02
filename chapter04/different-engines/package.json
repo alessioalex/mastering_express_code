@@ -1,0 +1,23 @@
+{
+  "name": "different-engines",
+  "version": "0.0.0",
+  "description": "Using different template engines",
+  "main": "ejs-server.js",
+  "dependencies": {
+    "jade": "~1.2.0",
+    "express": "~3.4.8",
+    "express-plates": "~0.1.4",
+    "mustache": "~0.8.1",
+    "json2html": "~0.0.8",
+    "node-json2html": "~0.4.1",
+    "plates": "~0.4.8",
+    "ejs": "~0.8.5",
+    "consolidate": "~0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

@@ -1,0 +1,10 @@
+<%- include layout/header.html %>
+
+<h1>Search for movies using the form below</h1>
+
+<form id="main-search" action="/movies" method="GET">
+  <input type="text" name="title" placeholder="movie title .." />
+  <input type="submit" value="Go" />
+</form>
+
+<%- include layout/footer.html %>

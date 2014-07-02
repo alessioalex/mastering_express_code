@@ -1,0 +1,17 @@
+{
+  "name": "view-caching",
+  "version": "0.0.0",
+  "description": "View caching example",
+  "main": "server.js",
+  "dependencies": {
+    "jade": "~1.3.0",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

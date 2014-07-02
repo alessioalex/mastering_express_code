@@ -1,0 +1,46 @@
+{
+  "name": "file-uploading-service",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "unit-tests": "mocha --reporter=spec test/unit",
+    "functional-tests": "mocha --reporter=spec --timeout=10000 --slow=2000 test/functional",
+    "coverage": "node node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha test/* -- --reporter=spec",
+    "lint": "eslint . -c eslint.json",
+    "test": "npm run unit-tests && npm run functional-tests"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "connect-multiparty": "~1.0.5",
+    "cuid": "~1.2.4",
+    "bcrypt": "~0.7.8",
+    "basic-auth-connect": "~1.0.0",
+    "errto": "~0.2.1",
+    "custom-err": "0.0.2",
+    "lodash": "~2.4.1",
+    "csurf": "~1.2.2",
+    "cookie-session": "~1.0.2",
+    "secure-filters": "~1.0.5",
+    "supertest": "~0.13.0",
+    "async": "~0.9.0"
+  },
+  "devDependencies": {
+    "proxyquire": "~1.0.1",
+    "should": "~4.0.4",
+    "mocha": "~1.20.1",
+    "sinon": "~1.10.2",
+    "cheerio": "~0.17.0",
+    "rimraf": "~2.2.8",
+    "pre-commit": "0.0.8",
+    "istanbul": "~0.2.11",
+    "eslint": "~0.6.2",
+    "complexity-report": "~1.0.3"
+  }
+}

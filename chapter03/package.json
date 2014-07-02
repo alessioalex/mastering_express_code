@@ -1,0 +1,33 @@
+{
+  "name": "SmartNotes",
+  "version": "0.0.0",
+  "description": "Creating RESTful APIs with Express",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "~3.4.8",
+    "mongoose": "~3.8.6",
+    "validator": "~3.2.1",
+    "mongoose-timestamp": "~0.2.0",
+    "memoizejs": "~0.1.0",
+    "extend": "~1.2.1",
+    "passport-local-mongoose": "~0.2.5",
+    "async": "~0.2.10",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "should": "~3.1.2",
+    "mocha": "~1.17.1",
+    "sinon": "~1.8.1",
+    "proxyquire": "~0.5.2",
+    "supertest": "~0.9.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test node node_modules/.bin/mocha --reporter spec test/unit/ test/functional/ --timeout 10000 --slow 2000",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

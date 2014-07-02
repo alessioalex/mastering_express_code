@@ -1,0 +1,22 @@
+{
+  "name": "updating-templates-production",
+  "version": "0.0.0",
+  "description": "How to update cached templates",
+  "main": "server.js",
+  "dependencies": {
+    "swig": "~1.3.2",
+    "watch": "~0.9.0",
+    "jade": "~1.1.5",
+    "express-hbs": "~0.7.9",
+    "consolidate": "~0.10.0",
+    "ejs": "~0.8.5",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User <%- user.id %></title>
+</head>
+<body style="background: <%- user.color %>">
+
+  <h1>Details for user <%- user.id %></h1>
+
+  <ul>
+    <li>Name: <%- user.name %></li>
+    <li>Alias: <%- user.alias %></li>
+    <li>Description: <%- user.description %></li>
+  </ul>
+
+  <script type="text/javascript">
+    var userConfig = "<%- JSON.stringify(user.config) %>";
+  </script>
+</body>
+</html>

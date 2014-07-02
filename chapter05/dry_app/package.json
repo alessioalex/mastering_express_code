@@ -1,0 +1,24 @@
+{
+  "name": "MovieApp",
+  "version": "0.0.1",
+  "description": "Search for your favourite movies",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.0.0-rc3",
+    "moviedb": "~0.1.1",
+    "ejs": "~0.8.5",
+    "body-parser": "~1.0.0",
+    "errto": "~0.2.1",
+    "after": "~0.8.1",
+    "async-series": "0.0.1",
+    "xtend": "~2.1.2",
+    "custom-err": "0.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

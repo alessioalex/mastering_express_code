@@ -1,0 +1,55 @@
+.container {
+  padding-top: 25px;
+}
+.notice {
+  padding: 10px;
+  margin: 10px 0;
+}
+.post {
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px #DEDEDE;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  overflow: hidden;
+}
+.post .thumbnail {
+  float: left;
+  width: 65px;
+  height: 65px;
+  border: none;
+  margin-bottom: 0;
+}
+.post .content {
+  padding-left: 65px;
+}
+.post .body {
+  vertical-align: middle;
+  font-size: 17px;
+}
+.post .meta {
+  color: #999;
+}
+.counter {
+  color: #999;
+  margin: 10px 0;
+}
+#posts .loading {
+  background: url('/img/ajax-loader.gif') no-repeat 10px center #DEDEDE;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin-bottom: 10px;
+}
+#head .col-md-4 {
+  padding-left: 0;
+  padding-right: 0;
+}
+#post-updates {
+  margin: 0;
+  display: none;
+  line-height: 32px;
+}
+#post-updates, #post-updates > * {
+  color: cadetblue;
+}

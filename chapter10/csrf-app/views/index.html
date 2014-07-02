@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place your order</title>
+</head>
+<body>
+  <h1>Order anything!</h1>
+
+  <form action="/orders" method="POST">
+    <input type="text" name="order" />
+    <input type="submit" value="Go" />
+    <%- csrf() %>
+  </form>
+
+</body>
+</html>

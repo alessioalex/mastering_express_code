@@ -1,0 +1,20 @@
+{
+  "name": "mvc-app",
+  "version": "0.0.1",
+  "description": "File sharing app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "jade": "~0.35.0",
+    "express": "~3.4.7",
+    "mongoose": "~3.8.1",
+    "pwd": "0.0.3",
+    "connect-flash": "~0.1.1",
+    "async": "~0.2.9",
+    "connect-multiparty": "~1.0.1"
+  }
+}

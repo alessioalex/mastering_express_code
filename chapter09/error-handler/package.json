@@ -1,0 +1,22 @@
+{
+  "name": "TimezoneApp",
+  "version": "0.0.0",
+  "description": "Display the time based on the timezone",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.2.0",
+    "timezone-js": "~0.4.10",
+    "async-each": "~0.1.4",
+    "stack-trace": "0.0.9",
+    "highlight.js": "https://github.com/alessioalex/highlight.js/releases/download/npm-v0.1.0/highlight.js.tgz",
+    "ejs": "~1.0.0",
+    "debug": "~0.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}

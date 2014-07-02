@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    title Sample page that lists users details
+  body
+    h1 Sample page that lists users details
+    ul
+      each user in users
+        li
+          p(class="user-item")
+            strong Name: 
+            | #{user.name}
+          p(class="user-item")
+            strong Age: 
+            | #{user.age}
+          p(class="user-item")
+            strong Gender: 
+            | #{user.gender}
+          p(class="user-item")
+            strong Friends: 
+            ul
+              each friend in user.friends
+                li=friend.name

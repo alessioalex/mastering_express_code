@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uploading files</title>
+</head>
+<body>
+  <h1>Upload file</h1>
+
+  <form action="/files" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="file">File:</label>
+      <input type="file" name="file" />
+    </div>
+    <div>
+      <input type="submit" value="Upload" />
+    </div>
+  </form>
+</body>
+</html>

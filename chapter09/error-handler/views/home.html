@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>What's the time in ..?</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <h1>Choose a timezone</h1>
+
+  <select id="timezone">
+    <option value="">- Select timezone -</option>
+    <% zones.forEach(function(zone) { %>
+    <option value="<%- zone %>"><%- zone %></option>
+    <% })%>
+  </select>
+
+  <script src="/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+    $('#timezone').on('change', function() {
+      window.location = '/' + $(this).val();
+    });
+  </script>
+</body>
+</html>
