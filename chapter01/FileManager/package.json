@@ -4,17 +4,24 @@
   "description": "File sharing app",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
     "jade": "~0.35.0",
-    "express": "~3.4.7",
+    "express": "~4.4.5",
     "mongoose": "~3.8.1",
     "pwd": "0.0.3",
     "connect-flash": "~0.1.1",
     "async": "~0.2.9",
-    "connect-multiparty": "~1.0.1"
+    "connect-multiparty": "~1.0.1",
+    "morgan": "~1.1.1",
+    "cookie-parser": "~1.3.2",
+    "cookie-session": "~1.0.2",
+    "body-parser": "~1.4.3",
+    "method-override": "~2.0.2",
+    "errorhandler": "~1.1.1"
   }
 }

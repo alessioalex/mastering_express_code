@@ -72,8 +72,7 @@ File.createFolder = function(userId, callback) {
 };
 
 File.getByUserId = function(userId, callback) {
-  fs.readdir(File.getUserPath(userId), function(err, files) {
-    if (err) { return callback(err); }
+  var getFiles = function(files) {
     if (!files) { return callback(null, []); }
 
     // get the stats for every file
@@ -88,6 +87,20 @@ File.getByUserId = function(userId, callback) {
         });
       });
     }, callback);
+  };
+
+  fs.readdir(File.getUserPath(userId), function(err, files) {
+    if (err && err.code === 'ENOENT') {
+      File.createFolder(userId, function(err) {
+        if (err) { return callback(err); }
+
+        getFiles(files);
+      });
+    } else if (!err) {
+      getFiles(files);
+    } else {
+      return callback(err);
+    }
   });
 };
 

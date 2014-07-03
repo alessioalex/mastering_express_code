@@ -11,6 +11,10 @@ block content
   if info
     p.notification.info= info
 
+  if error
+    p.notification.error= error
+
+
   div#upload-form
     form(action='/files', method='POST', enctype="multipart/form-data")
       div.browse-file

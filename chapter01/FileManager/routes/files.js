@@ -9,7 +9,8 @@ exports.index = function(req, res, next) {
     res.render('files/index', {
       username: req.session.username,
       files: files,
-      info: req.flash('info')[0]
+      info: req.flash('info')[0],
+      error: req.flash('error')[0]
     });
   });
 };
@@ -36,8 +37,9 @@ exports.destroy = function(req, res, next) {
 };
 
 exports.create = function(req, res, next) {
-  if (!req.files.file) {
-    return res.send({ error: 'no file provided' });
+  if (!req.files.file || (req.files.file.size === 0)) {
+    req.flash('error', 'No file selected!');
+    return res.redirect('/');
   }
 
   var file = new File(req.session.userId, req.files.file.originalFilename);
