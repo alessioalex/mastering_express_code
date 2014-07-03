@@ -1,0 +1,14 @@
+{
+  "name": "custom-middleware-system",
+  "version": "0.0.0",
+  "description": "",
+  "main": "sample-router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT",
+  "dependencies": {
+    "path-to-regexp": "~0.2.1"
+  }
+}

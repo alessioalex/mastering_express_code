@@ -3,6 +3,8 @@
 var express = require('express');
 var app = express();
 
+app.enable('trust proxy');
+
 app.use(function(req, res, next) {
   var ip = req.ip;
 
@@ -17,4 +19,4 @@ app.get('*', function(req, res, next) {
   res.send('Hello world');
 });
 
-app.listen(7777);
+app.listen(process.env.PORT || 7777);

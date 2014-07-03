@@ -1,7 +1,7 @@
 "use strict";
 
 var express = require('express');
-var app = express();
+var app = express.Router();
 
 app.get('/', function(req, res, next) {
   res.send('Admin app says hello');

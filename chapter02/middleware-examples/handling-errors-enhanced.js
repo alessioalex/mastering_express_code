@@ -2,9 +2,10 @@
 
 var express = require('express');
 var app = express();
+var logger = require('morgan');
 var fs = require('fs');
 
-app.use(express.logger('dev'));
+app.use(logger('dev'));
 
 app.get('/', function(req, res, next) {
   res.send('Hello world');

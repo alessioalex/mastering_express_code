@@ -30,3 +30,4 @@ app.all('*', function(req, res, next) {
 });
 
 http.createServer(app.handleRequest).listen(7777);
+console.log('server listening on port 7777');

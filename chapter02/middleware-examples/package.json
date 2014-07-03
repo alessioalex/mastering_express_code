@@ -1,0 +1,19 @@
+{
+  "name": "middleware-examples",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app-routes.js",
+  "dependencies": {
+    "express": "~4.4.5",
+    "morgan": "~1.1.1",
+    "response-time": "~2.0.0",
+    "compression": "~1.0.8",
+    "errorhandler": "~1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "MIT"
+}
