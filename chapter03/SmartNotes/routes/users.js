@@ -1,9 +1,9 @@
 "use strict";
 
-var express = require('express');
 var _ = require('lodash');
 var db = require('../lib/db');
 var publicAttributes = ['username', 'email', 'name'];
+var basicAuth = require('basic-auth-connect');
 
 exports.show = function(req, res, next) {
   req.User.findOne({ username: req.params.username }, function(err, userData) {
@@ -101,7 +101,7 @@ exports.update = function(req, res, next) {
 
 // automatically sets req.user if found
 exports.authenticate = function(req, res, next) {
-  express.basicAuth(function(user, pass, fn) {
+  basicAuth(function(user, pass, fn) {
     // function from passport-local-mongoose
     req.User.authenticate()(user, pass, function(err, userData) {
       // no need to store salt and hash

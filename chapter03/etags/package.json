@@ -1,0 +1,15 @@
+{
+  "name": "etags",
+  "version": "0.0.0",
+  "description": "",
+  "main": "etags.js",
+  "dependencies": {
+    "express": "~4.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com> (http://careers.stackoverflow.com/alessioalex)",
+  "license": "ISC"
+}

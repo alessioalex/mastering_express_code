@@ -5,25 +5,31 @@ var app = express();
 var db = require('./lib/db');
 var config = require('./config.json')[app.get('env')];
 
-var mongoose = require('mongoose');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
+
 var User = require('./models/user');
 var Note = require('./models/note');
 var routes = require('./routes');
 
 db.connect(config.mongoUrl);
 
-app.use(express.favicon());
-app.use(express.urlencoded());
-app.use(express.json());
-app.use(express.methodOverride());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(methodOverride(function(req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
 
 app.use(function(req, res, next) {
   req.User = User;
   req.Note = Note;
   next();
 });
-
-app.use(app.router);
 
 app.get('/users/:username', routes.users.show);
 app.post('/users', routes.users.create);

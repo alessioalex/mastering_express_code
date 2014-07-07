@@ -1,7 +1,7 @@
 "use strict";
 
 var validator = require('validator');
-var extend = require('extend');
+var extend = require('lodash').extend;
 var memoize = require('memoizejs');
 
 var customValidator = extend({}, validator);

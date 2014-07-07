@@ -7,15 +7,17 @@
     "test": "test"
   },
   "dependencies": {
-    "express": "~3.4.8",
+    "express": "~4.5.0",
     "mongoose": "~3.8.6",
     "validator": "~3.2.1",
     "mongoose-timestamp": "~0.2.0",
     "memoizejs": "~0.1.0",
-    "extend": "~1.2.1",
     "passport-local-mongoose": "~0.2.5",
     "async": "~0.2.10",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "method-override": "~2.0.2",
+    "body-parser": "~1.4.3",
+    "basic-auth-connect": "~1.0.0"
   },
   "devDependencies": {
     "should": "~3.1.2",
