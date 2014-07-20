@@ -3,7 +3,6 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-var config = require('./config');
 
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
@@ -13,7 +12,7 @@ app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
 
 var Movie = require('./models/movie');
-var movie = new Movie(config.API_KEY);
+var movie = new Movie(process.env.API_KEY);
 
 app.use(function(req, res, next) {
   req.movie = movie;

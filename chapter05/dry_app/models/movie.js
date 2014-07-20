@@ -7,7 +7,7 @@ var series = require('async-series');
 var xtend = require('xtend');
 
 function Movie(API_KEY) {
-  if (!API_KEY) { throw new Error('Bad API_KEY'); }
+  if (!API_KEY) { throw new Error('API_KEY is required'); }
 
   this.client = mdb(API_KEY);
   this.imagesPath = '';
@@ -22,7 +22,7 @@ Movie.prototype.getConfiguration = function(callback) {
       that.imagesPath = config.images.base_url;
       that.posterSizes = config.images.poster_sizes;
 
-      callback(null);
+      callback();
     }));
   } else {
     process.nextTick(callback);
@@ -32,14 +32,15 @@ Movie.prototype.getConfiguration = function(callback) {
 Movie.prototype.getFullImagePath = function(relativePath, size) {
   if (!relativePath) { return ''; }
 
-  if (typeof size === 'number') {
-    size = this.posterSizes[size] || this.posterSizes[0];
+  if (!size) {
+    // default to smalles size
+    size = this.posterSizes[0];
   } else {
-    if (size === 'biggest') {
-      size = this.posterSizes[this.posterSizes.length - 1];
-    } else {
-      // default to smalles size
-      size = this.posterSizes[0];
+    var index = this.posterSizes.indexOf(size);
+    size = this.posterSizes[index];
+
+    if (!size) {
+      throw new Error('unknown image size');
     }
   }
 
@@ -97,7 +98,7 @@ Movie.prototype.getMovie = function(id, callback) {
     that.client.movieCredits({ id: id }, errTo(done, function(credits) {
       var next = after(credits.cast.length, errTo(done, function(err) {
         that.getConfiguration(errTo(done, function() {
-          movieInfo.poster_path = that.getFullImagePath(movieInfo.poster_path, 3);
+          movieInfo.poster_path = that.getFullImagePath(movieInfo.poster_path, 'w185');
 
           done();
         }));
