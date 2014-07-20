@@ -12,7 +12,6 @@ fs.stat = function(path, cb) {
 var express = require('express');
 var app = express();
 var ejs = require('ejs');
-var morgan = require('morgan');
 var versionator = require('versionator');
 var serve = require('serve-static');
 var compress = require('compression')();
@@ -27,11 +26,6 @@ app.engine('html', require('ejs').renderFile);
 app.version = process.env.VERSION || '0.1';
 var versionate = versionator.createBasic('v' + app.version);
 app.locals.getResourcePath = versionate.versionPath;
-
-if (process.env.NODE_ENV !== 'production') {
-  // logger
-  app.use(morgan('tiny'));
-}
 
 // enable gzip compression
 app.use(compress);

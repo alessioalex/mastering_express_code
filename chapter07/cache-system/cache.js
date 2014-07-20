@@ -3,8 +3,8 @@
 var ms = require('ms');
 var cache = {};
 
-var isEmpty = function(val) {
-  return (val === undefined || val === null);
+var exists = function(val) {
+  return (typeof val !== 'undefined');
 };
 
 // generate a unique string for a set of arguments
@@ -42,7 +42,7 @@ cache.remember = function(originalFunc, opts) {
     cache.get(key, function(err, val) {
       if (err) { return callback(err); }
 
-      if (isEmpty(val)) {
+      if (!exists(val)) {
         // if there are pending functions for the key then push this callback
         // to the array and return, because the first function call will be
         // taking care of the rest
@@ -62,7 +62,7 @@ cache.remember = function(originalFunc, opts) {
         args.push(function(err, value) {
           // if there's an error or if the value wasn't found,
           // call all functions early
-          if (err || isEmpty(value)) {
+          if (err || !exists(value)) {
             return callFunctions(pendingFuncs['get_' + key], [err]);
           }
 
@@ -135,9 +135,7 @@ var store = {};
 cache.set = function(key, val, ttl, cb) {
   store['prefix-' + key] = val;
   // keep it async
-  setImmediate(function() {
-    cb();
-  });
+  setImmediate(cb);
 };
 cache.get = function(key, cb) {
   // keep it async
