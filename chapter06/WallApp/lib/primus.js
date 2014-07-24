@@ -3,7 +3,7 @@
 var Primus = require('primus');
 
 module.exports = function startPrimus(server, opts) {
-  var opts = opts || {};
+  opts = opts || {};
 
   var primus = new Primus(server, {
     transformer: opts.transformer || 'websockets',

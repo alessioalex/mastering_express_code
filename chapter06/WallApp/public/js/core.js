@@ -1,12 +1,19 @@
 $(function() {
-  var newPost = $('#new-post-content');
+  var $newPost = $('#new-post-content');
+  var $postsContainer = $('#posts');
+  var $postsHeading = $postsContainer.find('h3');
+  var $charCounter = $('#char-counter');
+  var $postUpdatesBanner = $('#post-updates');
+  var $postCounter = $postUpdatesBanner.find('.post-counter');
 
-  newPost.on('keyup', function(evt) {
+  var displayRemainingChars = function(evt) {
     var total = 255;
-    var written = newPost.val().length;
+    var written = $newPost.val().length;
 
-    $('#char-counter').text(total - written);
-  });
+    $charCounter.text(total - written);
+  };
+
+  $newPost.on('keyup', displayRemainingChars);
 
   var detectBottom = function(cb) {
     $(window).scroll(function() {
@@ -18,17 +25,49 @@ $(function() {
     });
   }
 
-  var postsContainer = $('#posts');
-  var postsHeading = postsContainer.find('h3');
+  var insertPosts = function(existingPosts, html) {
+    var $newPosts = $('<div id="newPosts">' + html + '</div>');
+
+    // remove the posts that are already in the DOM
+    // (because creation date <= to the last post)
+    $newPosts.find('.post').each(function() {
+      var thisEl = $(this);
+      var id = thisEl.attr('data-id');
+
+      if (existingPosts.indexOf(id) !== -1) {
+        thisEl.remove();
+      }
+    });
+
+    var newPostsHtml = $.trim($newPosts.html());
+
+    if (newPostsHtml !== '') {
+      $postsContainer.append(newPostsHtml);
+      // rebind the handler to the scroll now that we've fetched the data
+      detectBottom(loadMore);
+    }
+  };
+
+  var displayLoadingMessage = function() {
+    var loadingItem = $('<div class="loading">Loading older posts, please wait...</div>');
+    loadingItem.appendTo($postsContainer);
+  };
+
+  var removeLoadingMessage = function() {
+    $('.loading').remove();
+  };
+
+  var displayLoadingError = function() {
+    $('<p>Something bad happend :-(</p>').appendTo($postsContainer);
+  };
 
   var loadMore = function() {
-    var loadingItem = $('<div class="loading">Loading older posts, please wait...</div>');
-    loadingItem.appendTo(postsContainer);
+    displayLoadingMessage();
 
-    var olderThan = postsContainer.find('.post:last').attr('data-timestamp');
+    var olderThan = $postsContainer.find('.post:last').attr('data-timestamp');
     var existingPosts = [];
 
-    postsContainer.find('.post').each(function() {
+    $postsContainer.find('.post').each(function() {
       existingPosts.push($(this).attr('data-id'));
     });
 
@@ -37,44 +76,17 @@ $(function() {
       $.ajax({
         url: '/?partial=1&older=' + olderThan
       })
-      .done(function(html) {
-        var newPosts = $('<div id="newPosts">' + html + '</div>');
-
-        // remove the posts that are already in the DOM
-        // (because creation date <= to the last post)
-        newPosts.find('.post').each(function() {
-          var thisEl = $(this);
-          var id = thisEl.attr('data-id');
-
-          if (existingPosts.indexOf(id) !== -1) {
-            thisEl.remove();
-          }
-        });
-
-        var newPostsHtml = $.trim(newPosts.html());
-
-        if (newPostsHtml !== '') {
-          postsContainer.append(newPostsHtml);
-          // rebind the handler to the scroll now that we've fetched the data
-          detectBottom(loadMore);
-        }
-      })
-      .fail(function() {
-        $('<p>Something bad happend :-(</p>').appendTo(postsContainer);
-      })
-      .always(function() {
-        loadingItem.remove();
-      });
+      .done(insertPosts.bind(null, existingPosts))
+      .fail(displayLoadingError)
+      .always(removeLoadingMessage);
     }
   };
 
   detectBottom(loadMore);
 
   var incomingPosts = [];
-  var postUpdatesBanner = $('#post-updates');
-  var postCounter = postUpdatesBanner.find('.post-counter');
 
-  postUpdatesBanner.find('a').on('click', function(evt) {
+  var displayPostUpdates = function(evt) {
     evt.preventDefault();
 
     // display from newest to oldest
@@ -85,9 +97,11 @@ $(function() {
       current--;
     }
 
-    $(html).insertAfter(postsHeading);
-    postUpdatesBanner.fadeOut();
-  });
+    $(html).insertAfter($postsHeading);
+    $postUpdatesBanner.fadeOut();
+  };
+
+  $postUpdatesBanner.on('click', 'a', displayPostUpdates);
 
   // establish realtime connections only for the main page
   if (document.location.pathname === '/') {
@@ -105,8 +119,8 @@ $(function() {
       console.log('Primus Data', data);
 
       incomingPosts.push(data);
-      postCounter.text(incomingPosts.length);
-      postUpdatesBanner.fadeIn();
+      $postCounter.text(incomingPosts.length);
+      $postUpdatesBanner.fadeIn();
     });
   }
 });
