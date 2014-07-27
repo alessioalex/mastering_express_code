@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title><%= err.name %>:<%= err.message %></title>
+  <style type="text/css"><%- hljsStyle %></style>
+</head>
+<body>
+
+  <h1><%= err.name %>:<%= err.message %></h1>
+
+  <ul>
+    <% items.forEach(function(item) { %>
+      <li>
+        at <span class="functionName"><%= item.functionName || 'anonymous' %></span>
+        ( <a class="open-in-editor" href="/open-editor<%- item.fileName %>">
+        <%= item.fileName %>:<%= item.lineNumber + ':' + item.columnNumber %>)</a>
+        <style>pre#<%= item.id %> { counter-increment: lines <%= item.startLine %>}</style>
+        <p>
+          <pre id="<%= item.id %>"><code class="hljs lang-js"><%- item.content %></code></pre>
+        <p>
+      </li>
+    <% }) %>
+  </ul>
+
+  <script><%- mainJs %></script>
+
+</body>
+</html>

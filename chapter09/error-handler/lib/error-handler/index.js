@@ -6,6 +6,11 @@ var exec = require('child_process').exec;
 var stackTrace = require('stack-trace');
 var asyncEach = require('async-each');
 var hljs = require('highlight.js');
+var sep = require('path').sep;
+var ejs = require('ejs');
+
+var renderTmpl = ejs.compile(fs.readFileSync(__dirname + '/public/template.html', 'utf8'));
+
 var hljsStyle = fs.readFileSync(__dirname + '/public/style.css', 'utf8');
 var mainJs = fs.readFileSync(__dirname + '/public/main.js', 'utf8');
 
@@ -22,7 +27,7 @@ function displayDetails(err, req, res, next) {
 
   asyncEach(stack, function getContentInfo(item, cb) {
     // exclude core node modules and node modules
-    if (/\//.test(item.fileName) && !/node_modules/.test(item.fileName)) {
+    if ((item.fileName.indexOf(sep) !== -1) && !/node_modules/.test(item.fileName)) {
       fs.readFile(item.fileName, 'utf-8', function(err, content) {
         if (err) { return cb(err); }
 
@@ -63,28 +68,12 @@ function displayDetails(err, req, res, next) {
       return res.send(err.stack);
     }
 
-    var html = '<style>' + hljsStyle + '</style>';
-
-    html += '<h1>' + err.name + ': ' + err.message + '</h1><ul>';
-
-    items.forEach(function(item) {
-      html += '<li>at <span class="functionName">' + item.functionName || 'anonymous';
-      html += '</span>';
-      html += ' ( <a class="open-in-editor" href="/open-editor';
-      html += item.fileName + '">' + item.fileName + ':';
-      html += item.lineNumber + ':' + item.columnNumber + ')</a>';
-      html += '<style>pre#' + item.id;
-      html += ' { counter-increment: lines ' + item.startLine + '; }</style>';
-      html += '<p><pre id="' + item.id + '">';
-      html += '<code class="hljs lang-js">' + item.content + '</code></pre><p>';
-      html += '</li>';
-    });
-
-    html += '</ul>';
-
-    html += '<script>' + mainJs + '</script>';
-
-    res.send(html);
+    res.send(renderTmpl({
+      hljsStyle: hljsStyle,
+      mainJs: mainJs,
+      err: err,
+      items: items
+    }));
   });
 }
 

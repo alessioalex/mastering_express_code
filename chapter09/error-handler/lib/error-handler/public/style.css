@@ -162,7 +162,8 @@ body {
 h1 {
   background: #F8EEEE;
   padding: 10px 20px;
-  border-bottom: 5px solid D59394;
+  border-bottom: 5px solid #D59394;
+  margin: 0;
 }
 
 ul {
