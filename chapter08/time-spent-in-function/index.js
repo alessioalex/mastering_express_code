@@ -11,7 +11,7 @@ var getHrTime = function() {
   return (ts[0] * 1000) + (ts[1] / 1000000);
 };
 
-var wrapAsyncFn = function(func, context, callback) {
+var wrapAsyncFn = function(func, callback) {
   return function() {
     var args = Array.prototype.slice.call(arguments);
     var startTime = getHrTime();
@@ -26,17 +26,15 @@ var wrapAsyncFn = function(func, context, callback) {
       callback(endTime - startTime);
     });
 
-    func.apply(context, args);
+    func.apply(null, args);
   };
 };
 
-var wrapSyncFn = function(func, context, callback) {
-  context = context || null;
-
+var wrapSyncFn = function(func, callback) {
   return function() {
     var startTime = getHrTime();
+    func.apply(null, arguments);
     var endTime = getHrTime();
-    func.apply(this, arguments);
     callback(endTime - startTime);
   };
 };
@@ -51,7 +49,7 @@ var queryDbSampleFn = function(userId, cb) {
   }, getRandomNrBetween(300, 1000));
 };
 
-queryDbSampleFn = wrapAsyncFn(queryDbSampleFn, null, printTime.bind(null, 'queryDbSampleFn'));
+queryDbSampleFn = wrapAsyncFn(queryDbSampleFn, printTime.bind(null, 'queryDbSampleFn'));
 queryDbSampleFn(32, function(err, data) {});
 
 var calculateSum = function(lastNr) {
@@ -64,5 +62,5 @@ var calculateSum = function(lastNr) {
   return sum;
 };
 
-calculateSum = wrapSyncFn(calculateSum, null, printTime.bind(null, 'calculateSum'));
+calculateSum = wrapSyncFn(calculateSum, printTime.bind(null, 'calculateSum'));
 calculateSum(9000000);

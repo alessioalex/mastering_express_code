@@ -3,15 +3,15 @@
 var express = require('express');
 var app = express();
 
+var slowestEndPoints = [];
+var fastestOfTheSlowest = 0;
+
 var getHrTime = function() {
   // ts = [seconds, nanoseconds]
   var ts = process.hrtime();
   // convert seconds to miliseconds and nanoseconds to miliseconds as well
   return (ts[0] * 1000) + (ts[1] / 1000000);
 };
-
-var slowestEndPoints = [];
-var fastestOfTheSlowest = 0;
 
 app.use(function(req, res, next) {
   res._startTime = getHrTime();
@@ -35,23 +35,22 @@ app.use(function(req, res, next) {
         // this will happen only once, after the first 10 elements are inserted
         // in the array and the 11th is compared
         slowestEndPoints.forEach(function(endpoint) {
-          fastestOfTheSlowest = (endpoint.responseTime < fastestOfTheSlowest) ? endpoint.responseTime : fastestOfTheSlowest;
+          fastestOfTheSlowest = Math.min(endpoint.responseTime, fastestOfTheSlowest);
         });
       }
 
       // is the response time slower than the fastest response time in the array?
       if (responseTime > fastestOfTheSlowest) {
-        for (var i = 0; i < slowestEndPoints.length; i++) {
-          if (slowestEndPoints[i].responseTime === fastestOfTheSlowest) {
+        slowestEndPoints.forEach(function(endPoint, i) {
+          if (endPoint.responseTime === fastestOfTheSlowest) {
             // remember what array item should be replaced
             index = i;
           } else {
             // searching for the next fastest response time
-            if (slowestEndPoints[i].responseTime < min) {
-              min = slowestEndPoints[i].responseTime;
-            }
+            min = Math.min(endPoint.responseTime, min);
           }
-        }
+        });
+
         slowestEndPoints[index] = {
           url: req.url,
           responseTime: responseTime
@@ -71,7 +70,16 @@ var getRandomNrBetween = function(low, high) {
 };
 
 app.get('/slowest-endpoints', function(req, res, next) {
-  res.send(slowestEndPoints);
+  // display in descending order
+  res.send(slowestEndPoints.sort(function(a, b) {
+    if (a.responseTime > b.responseTime) {
+      return -1;
+    } else if (a.responseTime < b.responseTime) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }));
 });
 
 app.get('*', function(req, res, next) {

@@ -6,7 +6,6 @@ var app = express();
 
 var os = require('os');
 var hostname = os.hostname();
-var pid = process.pid;
 
 var addStatusEndpoint = function(key, server) {
   return function(req, res, next) {
@@ -20,7 +19,7 @@ var addStatusEndpoint = function(key, server) {
 
         res.send({
           hostname: hostname,
-          pid: pid,
+          pid: process.pid,
           uptime: process.uptime(),
           memoryUsage: process.memoryUsage(),
           activeConnections: count
