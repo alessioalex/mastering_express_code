@@ -24,7 +24,7 @@ exports.create = function(req, res, next) {
     if (err) {
       if (db.isValidationError(err)) {
         res.status(422).send({ errors: ['invalid data'] });
-      } else if (db.isDuplicateKeyError) {
+      } else if (db.isDuplicateKeyError(err)) {
         res.status(422).send({ errors: ['username/email already exists'] });
       } else {
         next(err);
